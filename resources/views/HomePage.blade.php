@@ -2,22 +2,18 @@
 @section('title')
     หน้าเเรก
 @endsection
-
+@php
+    use App\Services\MyService;
+    $myService = new MyService();
+@endphp
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
+                    <div class="card-header">เว็บบอร์ด</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                       ทดสอบการlogin
+                   
                     </div>
                 </div>
             </div>

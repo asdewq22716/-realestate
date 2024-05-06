@@ -17,6 +17,11 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+@php
+    use App\Services\MyService;
+    $myService = new MyService();
+@endphp
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
@@ -29,6 +34,7 @@
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -52,6 +58,10 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+
+                                <a class="nav-link" href="{{ route('AddTread')}}">เพิ่มกระทู้</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,9 +86,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <div class="container py-4">
             @yield('content')
-        </main>
+        </div>
     </div>
 </body>
 

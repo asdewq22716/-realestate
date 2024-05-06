@@ -1,12 +1,18 @@
 <?php
-// ใน app/Services/MyService.php
 
 namespace App\Services;
 
 class MyService
 {
-    public function ClassTest($data)
+    /**
+     * Create a new class instance.
+     */
+    public function __construct()
     {
-        // ทำสิ่งที่ต้องการกับข้อมูล
+        //
+    }
+    public function print_pre($data)
+    {
+        return '<pre>' . print_r($data, true) . '</pre>';
     }
 }

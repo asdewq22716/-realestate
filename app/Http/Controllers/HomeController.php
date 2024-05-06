@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\MyService;
 use App\Http\Middleware\CheckRole;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $MyService = new MyService;
-        $MyService->ClassTest("");
         return view('HomePage');
+    }
+
+    function AddTread()
+    {
+        return view('AddTread');
+    }
+
+    function insert(Request $request)
+    {
+
+        $request->validate([
+            'nameTread' => 'required|max:100',
+            'DetailTread' => 'required'
+        ], [
+            'nameTread.required'
+        ]);
     }
 }

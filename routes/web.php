@@ -20,8 +20,9 @@ Route::get('/', function () {
 // หน้า Home
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
+Route::get('/AddTread', [HomeController::class, 'AddTread'])->name('AddTread')->middleware('auth');
 
-
+Route::post('/insert',[HomeController::class.'insert'])->name('insert')->middleware('auth');
 
 // หน้า Home Page สำหรับ Admin
 /* Route::middleware(CheckRole::class . ':admin')->group(function () {
