@@ -12,4 +12,8 @@ class AdminController extends Controller
         // เรียกใช้งาน Middleware ใน Constructor ของ Controller
         $this->middleware(CheckRole::class . ':admin');
     }
+    function HomgPage()
+    {
+        return view('HomePage');
+    }
 }

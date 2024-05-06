@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    home
+    หน้าเเรก
 @endsection
 
 @section('content')
@@ -16,13 +16,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        @if (auth()->check())
-                            <p>ยินดีต้อนรับ {{ auth()->user()->name }}</p>
-                        @else
-                            <a href="{{ route('login') }}">
-                                <p>กรุณาเข้าสู่ระบบ</p>
-                            </a>
-                        @endif
+
+                       ทดสอบการlogin
                     </div>
                 </div>
             </div>

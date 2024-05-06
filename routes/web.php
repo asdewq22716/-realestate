@@ -4,25 +4,31 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\NormalUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Middleware\CheckRole;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::middleware(CheckRole::class . ':admin')->group(function () {
-    Route::get('/admin-panel', function () {
-        //
-    });
+Route::get('/', function () {
+    return view('home');
 });
 
-Route::middleware(CheckRole::class . ':normal_user')->group(function () {
-    Route::get('/admin-panel', function () {
-        //
-    });
+
+//>middleware('auth') เป็นการตรวจสอบว่า loginหรือไม่
+// หน้า Home
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
+
+
+// หน้า Home Page สำหรับ Admin
+/* Route::middleware(CheckRole::class . ':admin')->group(function () {
+    Route::get('/HomePage', [AdminController::class, 'HomePage'])->name('Home');
+});
+ */
+// Fallback Route สำหรับหน้าที่ไม่มีในเส้นทางข้างบน
+Route::fallback(function () {
+    return "<h1>ไม่พบหน้าเว็บ</h1>";
 });

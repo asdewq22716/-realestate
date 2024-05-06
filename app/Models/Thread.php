@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',// รหัสผู้ใช้ที่สร้างกระทู้
+        'title',//หัวข้อของกระทู้
+        'content',//เนื้อหาหรือข้อความของกระทู้
+    ];
+
 }

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       /*  $this->middleware(CheckRole::class); */
+        /*  $this->middleware(CheckRole::class); */
     }
 
     /**
@@ -29,6 +29,6 @@ class HomeController extends Controller
     {
         $MyService = new MyService;
         $MyService->ClassTest("");
-        return view('home');
+        return view('HomePage');
     }
 }
